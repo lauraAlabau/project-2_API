@@ -1,0 +1,36 @@
+<div id="search">
+  <div id="form-auth" class="search">
+
+    <form action="/search" method="POST">
+
+      <label>
+        <input type="text" name="q" placeholder="Card name" />
+      </label>
+      <button type="submit" class="btn btn-info">Search</button>
+
+    </form>
+
+  </div>
+
+
+  <div  id="search-result" class='row search-row'>
+    {{#each cards}}
+      <div class=' col-3 '>
+        <div class='card'>
+          <img src={{image_uris.png}} alt={{name}}>
+          <form action = "/add-favorite" method="POST">
+            
+            <input type="hidden" name="name" value={{name}}>
+            <input type="hidden" name="image" value={{image_uris.png}}>
+            <input type="hidden" name="apiId" value={{id}}>
+            <button type="submit" class="btn btn-info  btn-block">Add favourite</button>
+          </form>
+        </div>
+      </div>
+    {{/each}}
+
+  </div>
+
+
+  </div>
+</div>

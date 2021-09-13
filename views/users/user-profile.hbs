@@ -1,0 +1,25 @@
+<div id="profile">
+{{#if userInSession}}
+    <div class="container user-list">
+        <h2>{{ userInSession.username }} Favourites Cards</h2>
+        <div  id="search-result" class='row search-row'>
+            {{#each userInSession.favourites}}
+                <div class=' col-3 '>
+                    <div class='card'>
+                        <img src={{image}} alt={{name}}>
+
+                        <form action = "/delete-favourite" method="POST">
+                            <input type="hidden" name="id" value={{_id}}>
+                            <button type="submit" class="btn btn-secondary btn-block">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <p>Still no logged in user, sorry!</p>
+    </div>
+{{/if}}
+
+</div>
+
