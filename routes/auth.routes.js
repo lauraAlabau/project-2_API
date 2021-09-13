@@ -20,8 +20,42 @@ router.get('/signup', isLoggedOut, (req, res) => res.render('auth/signup'));
 
 // POST route ==> to process form data
 router.post('/signup', (req, res, next) => {
-  //console.log('The form data: ', req.body);
   const { username, password } = req.body;
+
+  if (!username || !password) {
+    res.render('auth/signup', { errorMessage: 'All fields are mandatory. Please provide your username and password.' });
+    return;
+  }
+ 
+  bcryptjs
+    .genSalt(saltRounds)
+    .then(salt => bcryptjs.hash(password, salt))
+    .then(hashedPassword => {
+      return User.create({
+        // username: username
+        username,
+        passwordHash: hashedPassword
+      });
+    })
+    .then(userFromDB => {
+      // console.log('Newly created user is: ', userFromDB);
+      res.redirect('/userProfile');
+    })
+    .catch(error => {
+      if (error instanceof mongoose.Error.ValidationError) {
+        res.status(500).render('auth/signup', { errorMessage: error.message });
+      } else if (error.code === 11000) {
+        res.status(500).render('auth/signup', {
+           errorMessage: 'Username need to be unique. Either username is already used.'
+        });
+      } else {
+        next(error);
+      }
+    }); // close .catch()
+})
+
+  //console.log('The form data: ', req.body);
+/*   const { username, password } = req.body;
 
   if (!username) {
     return res
@@ -76,7 +110,7 @@ router.post('/signup', (req, res, next) => {
           .render("auth/signup", { errorMessage: error.message });
       });
   });
-});
+}); */
 
 /********************************************************/
 /* U S E R - P R O F I L E */
