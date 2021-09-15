@@ -8,7 +8,7 @@
                     <div class='card container-card'>
                         <img  id="img-hover"  src={{image}} alt={{name}}>
                         <div class="overlay">
-                            <form class="button-hover" id="decks" action = "/add-deck" method="POST">
+                            <form class="button-hover" onclick="addedToDeck()" id="decks" action = "/fav-deck" method="POST">
                                 {{!--     name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId --}}
                                 <input type="hidden" name="name" value="{{name}}">
                                 <input type="hidden" name="image" value={{image_uris.png}}>
@@ -36,3 +36,8 @@
 {{/if}}
 </div>
 
+<script>
+    function addedToDeck() {
+    alert("ADDED to DECK");
+    }
+</script>

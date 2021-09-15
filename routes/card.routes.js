@@ -42,7 +42,7 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
              User
               .findByIdAndUpdate(req.user._id,{$push : {favourites : result._id}})
               .then(()=>{
-                res.redirect("/userProfile")
+                res.redirect("/search")
               })
           })
           .catch(err => console.log(err))
@@ -55,9 +55,9 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
                 .findByIdAndUpdate(req.user._id,{$push : {favourites : charArray[0]._id}})
                 .then(()=>{
                   /* res.send('<script>alert("Your card was added")</script>');  */
-                  res.redirect("/userProfile")
+                  res.redirect("/search")
                 })
-            }else{res.redirect("/userProfile")}
+            }else{res.redirect("/search")}
           })
           .catch((err)=>{
             console.log(err)
@@ -94,7 +94,7 @@ router.post("/add-deck", isLoggedIn ,(req, res) =>{
             User
               .findByIdAndUpdate(req.user._id,{$push : {decks : result._id}})
               .then(()=>{
-                res.redirect("/userDeck")
+                res.redirect("/search")
               })
           })
             .catch(err => console.log(err))
@@ -106,9 +106,58 @@ router.post("/add-deck", isLoggedIn ,(req, res) =>{
               User
                 .findByIdAndUpdate(req.user._id,{$push : {decks : cardArray[0]._id}})
                 .then(()=>{
-                  res.redirect("/userDeck")
+                  res.redirect("/search")
                 })
-            }else{res.redirect("/userDeck")}
+            }else{res.redirect("/search")}
+          })
+          .catch((err)=>{
+            console.log(err)
+          })        
+      }
+    }) 
+})
+
+
+router.post("/delete-card",isLoggedIn,(req,res)=>{
+  const {id} = req.body
+  User
+    .findByIdAndUpdate(req.user._id,{$pull : {decks : id}})
+    .then(()=>{
+      res.redirect("/userDeck")
+  })
+  .catch(err => console.log(err))
+})
+/**********************************************************************/
+/* ADD DECK FROM FAV */
+router.post("/fav-deck", isLoggedIn ,(req, res) =>{
+  const query2 = { name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId } = req.body
+  const idToCheck2 = req.body.apiId;
+ Card
+    .find({apiId: idToCheck2})
+    .then (cardArray => {
+    //comprobar si ese apiId ya esta en db cards
+      if (cardArray.length === 0) {
+        Card
+          .create(query2)
+          .then(result => {
+            User
+              .findByIdAndUpdate(req.user._id,{$push : {decks : result._id}})
+              .then(()=>{
+                res.redirect("/userProfile")
+              })
+          })
+            .catch(err => console.log(err))
+      } else {
+        User
+          .findById(req.user._id)
+          .then((user)=>{
+            if (!user.decks.includes(cardArray[0]._id)){
+              User
+                .findByIdAndUpdate(req.user._id,{$push : {decks : cardArray[0]._id}})
+                .then(()=>{
+                  res.redirect("/userProfile")
+                })
+            }else{res.redirect("/userProfile")}
           })
           .catch((err)=>{
             console.log(err)

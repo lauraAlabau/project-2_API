@@ -7,6 +7,7 @@
       <button type="submit" class="btn btn-info">Search</button>
     </form>
   </div>
+
   <div  id="search-result" class='row search-row'>
     {{#each cards}}
       <div class=' col-3 '>
@@ -23,7 +24,7 @@
               <input type="hidden" name="power" value="{{power}}">
               <input type="hidden" name="toughness" value="{{toughness}}">
               <input type="hidden" name="apiId" value={{id}}>
-              <button type="submit" class="btn btn-info  btn-block favourites">Add to favourites</button>
+              <button onclick="addedToFav()" type="submit" class="btn btn-info  btn-block favourites">Add to favourites</button>
             </form>
             <form class="button-hover2" id="decks" action = "/add-deck" method="POST">
               {{!--     name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId --}}
@@ -36,7 +37,7 @@
               <input type="hidden" name="power" value="{{power}}">
               <input type="hidden" name="toughness" value="{{toughness}}">
               <input type="hidden" name="apiId" value={{id}}>
-              <button type="submit" class="btn btn-warning  btn-block deck">Add to deck</button>
+              <button onclick="addedToDeck()" type="submit" class="btn btn-warning  btn-block deck">Add to deck</button>
             </form>
           </div>
         </div>
@@ -44,3 +45,12 @@
     {{/each}}
   </div>
 </div>
+
+<script>
+  function addedToDeck() {
+    alert("ADDED to DECK \nSEARCH AGAIN");
+  }
+  function addedToFav() {
+    alert("ADDED to FAVOURITES \nSEARCH AGAIN");
+  }
+</script>
