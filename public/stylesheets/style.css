@@ -215,6 +215,7 @@ button#user-home{
 .card{
   background-color: transparent;
   border: 0px;
+  margin-bottom: 10%;
 }
 
 /* USER FAV */
@@ -247,13 +248,24 @@ margin-bottom: 5vh;
 /* USER DECK */
 .user-deck {
   display: flex;
-  /* align-items: center; */
+  padding-top: 5px;
   flex-direction: column;
+}
+
+.user-deck h2.print{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 .screen,
 .screen-2{
   display: none;
+}
+
+.borderH {
+  margin-bottom: 15px;
+  border-bottom: 1px solid white;
 }
 
 /* OVERLAY IMAGES */
@@ -340,6 +352,10 @@ margin-bottom: 5vh;
     display:block;
 
   }
+  .user-deck h2.print{
+    display: none;
+  }
+
   input {
     border: none;
     background: transparent;

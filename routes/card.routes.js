@@ -54,6 +54,7 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
               User
                 .findByIdAndUpdate(req.user._id,{$push : {favourites : charArray[0]._id}})
                 .then(()=>{
+                  /* res.send('<script>alert("Your card was added")</script>');  */
                   res.redirect("/userProfile")
                 })
             }else{res.redirect("/userProfile")}

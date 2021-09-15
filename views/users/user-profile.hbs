@@ -2,13 +2,13 @@
 {{#if userInSession}}
     <div class="container user-list">
         <h2>Your Favourites Cards</h2>
-        <div  id="search-result" class='row search-row'>
+        <div id="search-result" class='row search-row'>
             {{#each userInSession.favourites}}
                 <div class=' col-3 '>
                     <div class='card container-card'>
                         <img  id="img-hover"  src={{image}} alt={{name}}>
                         <div class="overlay">
-                             <form class="button-hover" id="decks" action = "/add-deck" method="POST">
+                            <form class="button-hover" id="decks" action = "/add-deck" method="POST">
                                 {{!--     name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId --}}
                                 <input type="hidden" name="name" value="{{name}}">
                                 <input type="hidden" name="image" value={{image_uris.png}}>
@@ -34,6 +34,5 @@
         <p>Still no logged in user, sorry!</p>
     </div>
 {{/if}}
-
 </div>
 

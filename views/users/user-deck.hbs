@@ -1,77 +1,79 @@
 <div id="profile">
-{{#if userInSession}}
-    <div class="container user-deck">
-        <h2 class="print">Your Deck</h2>
-        <h5 class="screen">Name _________________ </h5>
-        <h5 class="screen">DCI Number _________________ </h5>
-        <ul>
-            <div  id="deck-list" class='col'>
-                <div class='list row'>
-                    <h3 class="col-2 print">Quantity</h3>
-                    <h3 class="col-5 print">Card name</h3>
-                   {{!--  <h3 class="col-1">CMC</h3> --}}
-                  {{!--       <h5 class="col-2">Mana cost</h5> --}}
-                    <h3 class="col-3 print">Type</h3>
-
-                    <h3 class="col-2"></h3>
-                </div>
-                <h2 class="screen-2">Deck</h2>
-                {{#each userInSession.decks}}
-                <li> 
-                    <div class='list row'>
-                    <form class="col-2" action="/action_page.php">
-                        <input type="number" id="quantity" value="1" name="quantity" min="0" max="60">
-                    </form> 
-                        <h5 class="col-5">{{this.name}}</h5>
-                      
-                        <h5 class="col-3 print">{{this.type_line}}</h5>
-                        <form class="col-1" action = "/add-sb" method="POST">
-            {{!--     name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId --}}
-                            <input type="hidden" name="name" value="{{name}}">
-                            <input type="hidden" name="image" value={{image_uris.png}}>
-                            <input type="hidden" name="mana_cost" value="{{mana_cost}}">
-                            <input type="hidden" name="cmc" value="{{cmc}}">
-                            <input type="hidden" name="type_line" value="{{type_line}}">
-                            <input type="hidden" name="oracle_text" value="{{oracle_text}}">
-                            <input type="hidden" name="power" value="{{power}}">
-                            <input type="hidden" name="toughness" value="{{toughness}}">
-                            <input type="hidden" name="apiId" value={{id}}>
-                            <button type="submit" class="btn btn-warning  btn-block deck">SB</button>
-                        </form>
-                        <form class="col-1" action = "/delete-card" method="POST">
-                            <input type="hidden" name="id" value={{this._id}}>
-                            <button type="submit" class="btn btn-danger btn-block mb-2">X</button>
-                        </form>
+    {{#if userInSession}}
+        <div class="container user-deck">
+            <h2 class="print">{{userInSession.username}} Deck
+                <button class="btn btn-light" onclick="window.print()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
+                        <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
+                        <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                    </svg>
+                </button>
+            </h2>
+            <h5 class="screen">Name _________________ </h5>
+            <h5 class="screen">DCI Number _________________ </h5>
+            <ul><br><br>
+                <div id="deck-list" class='col'>
+                    <h2>Deck</h2>
+                    <div class='list row borderH'>
+                        <h5 class="col-2 print">Quantity</h5>
+                        <h5 class="col-5 print">Card name</h5>
+                        <h5 class="col-3 print">Type</h5>
+                        <h5 class="col-2"></h5>
                     </div>
-
-                </li> 
-
-                {{/each}}
-                 <h2>Sideboard</h2>
-                {{#each userInSession.sideboard}}
-                <li> 
-                    <div class='list row'>
-                    <form class="col-2" action="/action_page.php">
-                        <input type="number" id="quantity" value="0" name="quantity" min="0" max="60">
-                    </form> 
-  
-                        <h5 class="col-5">{{this.name}}</h5>
-                        <h5 class="col-3 print">{{this.type_line}}</h5>
-                
-                    <form class="col-2" action = "/delete-card-deck" method="POST">
-                        <input type="hidden" name="id" value={{this._id}}>
-                        <button type="submit" class="btn btn-danger btn-block mb-2">Delete</button>
-                    </form>
+                    {{#each userInSession.decks}}
+                        <li> 
+                            <div class='list row'>
+                                <form class="col-2" action="/action_page.php">
+                                    <input type="number" id="quantity" value="1" name="quantity" min="0" max="60">
+                                </form> 
+                                <h5 class="col-5">{{this.name}}</h5>
+                                <h5 class="col-3 print">{{this.type_line}}</h5>
+                                <form class="col-1" action = "/add-sb" method="POST">
+                                    <input type="hidden" name="name" value="{{name}}">
+                                    <input type="hidden" name="image" value={{image_uris.png}}>
+                                    <input type="hidden" name="mana_cost" value="{{mana_cost}}">
+                                    <input type="hidden" name="cmc" value="{{cmc}}">
+                                    <input type="hidden" name="type_line" value="{{type_line}}">
+                                    <input type="hidden" name="oracle_text" value="{{oracle_text}}">
+                                    <input type="hidden" name="power" value="{{power}}">
+                                    <input type="hidden" name="toughness" value="{{toughness}}">
+                                    <input type="hidden" name="apiId" value={{id}}>
+                                    <button type="submit" class="btn btn-warning  btn-block deck">SB</button>
+                                </form>
+                                <form class="col-1" action = "/delete-card" method="POST">
+                                    <input type="hidden" name="id" value={{this._id}}>
+                                    <button type="submit" class="btn btn-danger btn-block mb-2">X</button>
+                                </form>
+                            </div>
+                        </li> 
+                    {{/each}}<br><br>
+                    <h2>Sideboard</h2>
+                    <div class='list row borderH'>
+                        <h5 class="col-2 print">Quantity</h5>
+                        <h5 class="col-5 print">Card name</h5>
+                        <h5 class="col-3 print">Type</h5>
+                        <h5 class="col-2"></h5>
+                    </div>
+                    {{#each userInSession.sideboard}}
+                        <li> 
+                            <div class='list row'>
+                                <form class="col-2" action="/action_page.php">
+                                    <input type="number" id="quantity" value="0" name="quantity" min="0" max="60">
+                                </form> 
+                                    <h5 class="col-5">{{this.name}}</h5>
+                                    <h5 class="col-3 print">{{this.type_line}}</h5>
+                                <form class="col-2" action = "/delete-card-deck" method="POST">
+                                    <input type="hidden" name="id" value={{this._id}}>
+                                    <button type="submit" class="btn btn-danger btn-block mb-2">Delete</button>
+                                </form>
+                            </div>
+                        </li> 
+                    {{/each}}
                 </div>
-                </li> 
-
-                {{/each}}
-            </div>
-        </ul>
-    {{else}}
-        <p>Still no logged in user, sorry!</p>
-    </div>
-{{/if}}
-
+            </ul>
+            {{else}}
+                <p>Still no logged in user, sorry!</p>
+        </div>
+    {{/if}}
 </div>
 
