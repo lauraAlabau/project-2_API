@@ -11,6 +11,7 @@ const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 // MODEL IMPORT
 const User = require('../models/User.model');
+
 /**********************************************************************/
 
 /**********************************************************************/
@@ -71,6 +72,16 @@ router.get('/userProfile', isLoggedIn, (req, res) => {
     .populate('favourites')
     .then((user) =>{
       res.render('users/user-profile', { userInSession: user });
+    })
+    .catch((error) => console.log(error))
+});
+
+router.get('/userDeck', isLoggedIn, (req, res) => {
+  User
+    .findById(req.user._id)
+    .populate('decks')
+    .then((user) =>{
+      res.render('users/user-deck', { userInSession: user });
     })
     .catch((error) => console.log(error))
 });

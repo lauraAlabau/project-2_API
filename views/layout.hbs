@@ -31,9 +31,17 @@
          <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                {{#if userInSession}}
-                  <li class="nav-item" >
-                     <a class="nav-link" href="/userProfile">Profile</a>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{userInSession.username}}
+                     </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <a class="dropdown-item" href="/userProfile">Favourites</a>
+                     <div class="dropdown-divider"></div>
+                     <a class="dropdown-item" href="/userDeck">Decks</a>
+                  </div>
                   </li>
+
                   <li class="nav-item">
                      <form id="logout-form" class="form-inline my-2 my-lg-0" action="/logout" method="POST">
                         <button class="btn btn-danger my-2 mr-sm-2">Logout</button>

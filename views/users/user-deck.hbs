@@ -1,0 +1,64 @@
+<div id="profile">
+{{#if userInSession}}
+    <div class="container user-deck">
+        <h2 class="print">Your Deck</h2>
+        <h5 class="screen">Name _________________ </h5>
+        <h5 class="screen">DCI Number _________________ </h5>
+        <ul>
+            <div  id="deck-list" class='col'>
+                <div class='list row'>
+                    <h3 class="col-2 print">Quantity</h3>
+                    <h3 class="col-5 print">Card name</h3>
+                   {{!--  <h3 class="col-1">CMC</h3> --}}
+                  {{!--       <h5 class="col-2">Mana cost</h5> --}}
+                    <h3 class="col-3 print">Type</h3>
+
+                    <h3 class="col-2"></h3>
+                </div>
+                <h2 class="screen-2">Deck</h2>
+                {{#each userInSession.decks}}
+                <li> 
+                    <div class='list row'>
+                    <form class="col-2" action="/action_page.php">
+                        <input type="number" id="quantity" value="1" name="quantity" min="0" max="60">
+                    </form> 
+                        <h5 class="col-5">{{this.name}}</h5>
+                      
+                        <h5 class="col-3 print">{{this.type_line}}</h5>
+                        <form class="col-1" action = "/delete-card" method="POST">
+                            <input type="hidden" name="id" value={{this._id}}>
+                            <button type="submit" class="btn btn-danger btn-block mb-2">X</button>
+                        </form>
+                    </div>
+
+                </li> 
+
+                {{/each}}
+                 <h2>Sideboard</h2>
+                {{#each userInSession.sideboard}}
+                <li> 
+                    <div class='list row'>
+                    <form class="col-2" action="/action_page.php">
+                        <input type="number" id="quantity" value="0" name="quantity" min="0" max="60">
+                    </form> 
+  
+                        <h5 class="col-5">{{thisname}}</h5>
+                        <h5 class="col-3 print">{{this.type_line}}</h5>
+                
+                    <form class="col-1" action = "/delete-card-deck" method="POST">
+                        <input type="hidden" name="id" value={{this._id}}>
+                        <button type="submit" class="btn btn-danger btn-block mb-2">x</button>
+                    </form>
+                </div>
+                </li> 
+
+                {{/each}}
+            </div>
+        </ul>
+    {{else}}
+        <p>Still no logged in user, sorry!</p>
+    </div>
+{{/if}}
+
+</div>
+

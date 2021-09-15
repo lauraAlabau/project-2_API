@@ -15,7 +15,18 @@ const userSchema = new Schema({
   favourites:  [{	
     type: Schema.Types.ObjectId,
 		ref: "Card"
+  }],
+
+  decks:[{	
+    type: Schema.Types.ObjectId,
+		ref: "Card"
+  }],
+
+  sideboard:[{	
+    type: Schema.Types.ObjectId,
+		ref: "Card"
   }]
+
 });
 
 const User = model("User", userSchema);

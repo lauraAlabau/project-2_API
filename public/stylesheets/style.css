@@ -25,6 +25,10 @@ body #profile {
   min-height: 91vh;
 }
 
+ul{
+  list-style-type:none;
+}
+
 h1{
   font-size: 5em;
 }
@@ -42,6 +46,13 @@ h1{
 
 .navbar-nav {
   align-items: center;
+}
+
+.dropdown-menu{
+  background-color: #000 !important;
+}
+.dropdown-item:hover{
+  background-color: rgb(27, 27, 27) !important;
 }
 
 /* FOOTER GENERIC */
@@ -194,7 +205,7 @@ margin-bottom: 1vh;
   border: 0px;
 }
 
-/* USER LIST */
+/* USER FAV */
 .user-list h2{
 margin-top: 5vh;
 margin-bottom: 5vh;
@@ -219,4 +230,52 @@ margin-bottom: 5vh;
 
 .div-to-delete{
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* USER DECK */
+.user-deck {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+}
+
+.screen,
+.screen-2{
+  display: none;
+}
+
+
+@media print {
+  body{
+    background: white;
+    color: #000;
+  }
+  body #profile {
+    background: white;
+    color: #000;
+  }
+  body #search{
+    background: white;
+    color: #000;
+  }
+  .btn,
+  .print, 
+  nav, 
+  footer{
+    display: none;
+  }
+  .screen{
+    display:block;
+    text-align: right;
+  }
+  .screen-2{
+    display:block;
+
+  }
+  input {
+    border: none;
+    background: transparent;
+    color: black;
+  }
+
 }
