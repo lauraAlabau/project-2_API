@@ -105,7 +105,7 @@ router.post("/add-deck", isLoggedIn ,(req, res) =>{
               User
                 .findByIdAndUpdate(req.user._id,{$push : {decks : cardArray[0]._id}})
                 .then(()=>{
-                  res.redirect("/search")
+                  res.redirect("/userDeck")
                 })
             }else{res.redirect("/userDeck")}
           })
@@ -155,7 +155,7 @@ router.post("/add-sb", isLoggedIn ,(req, res) =>{
               User
                 .findByIdAndUpdate(req.user._id,{$push : {sideboard : sbArray[0]._id}})
                 .then(()=>{
-                  res.redirect("/search")
+                  res.redirect("/userDeck")
                 })
             }else{res.redirect("/userDeck")}
           })
