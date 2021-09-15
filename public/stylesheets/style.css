@@ -104,6 +104,12 @@ footer p{
 margin-bottom: 1vh;
 }
 
+button#user-home{
+  width: 100%;
+  margin-right: 0px!important;
+}
+
+
 #logout-form .btn-link{
   color: rgb(170, 0, 0);
   font-weight: 600;
@@ -188,10 +194,16 @@ margin-bottom: 1vh;
   background: rgba(0, 0, 0, 0.60);
   padding: 1%;
 }
-#search-result button{
-  margin-bottom: 5vh;
+
+#search-result #favourites button {
+  margin-bottom: 2px;
+}
+#search-result #decks  button{
+  margin-bottom: 10%;
   margin-top: 1vh;align-items: center;
 }
+
+
 
 .search-row {
   display: flex;
@@ -243,6 +255,62 @@ margin-bottom: 5vh;
 .screen-2{
   display: none;
 }
+
+/* OVERLAY IMAGES */
+
+.overlay {
+ position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-card:hover .overlay {
+/*  display: block;  */
+  background: rgba(0, 0, 0, .5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#img-hover {
+/*   position: absolute; */
+  left: 0;
+}
+
+.button-hover {
+  position: absolute;
+  text-align: center;
+  width: 60%;
+  margin-bottom: 20%;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.button-hover2 {
+  position: absolute;
+  text-align: center;
+  width: 60%;
+  margin-top: 20%;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.container-card:hover .button-hover,  
+.container-card:hover .button-hover2  {
+  opacity: 1;
+}
+
+
+
+
 
 
 @media print {

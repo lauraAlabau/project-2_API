@@ -2,16 +2,27 @@
 <div class="container index">
   <div class="row index-row justify-content-center align-items-center">
     <div class="content">
+    {{#if userInSession}}  
+      <h2 class="card-title">Welcome {{userInSession.username}}</h2>
+      <h5 class="card-text">Search cards to create your deck</h5>
+        <div class="btn-index">
+          <a href="/search" class="btn btn-info">Search</a>
+          <form id="logout-form" class="form-inline my-2 my-lg-0" action="/logout" method="POST">
+            <button  id="user-home" class="btn btn-danger my-2 mr-sm-2">Logout</button>
+          </form>
+        </div>
+    {{else}}   
     <h2 class="card-title">Welcome to</h2>
-    <h1 class="card-subtitle">Project 2</h1>
-    <p class="card-text">Set your favourites mtg cards</p>
-    <div class="btn-index">
-      <a href="/login" class="btn btn-light">Login</a>
-      <a href="/signup" class="btn btn-light">Signup</a>
-    </div>
+      <h1 class="card-subtitle">Project 2</h1>
+      <p class="card-text">Set your favourites mtg cards</p>
+        <div class="btn-index">
+          <a href="/login" class="btn btn-light">Login</a>
+          <a href="/signup" class="btn btn-light">Signup</a>
+        </div> 
+      
 
+    {{/if}}
     </div>
-
   </div>
 
 </div>

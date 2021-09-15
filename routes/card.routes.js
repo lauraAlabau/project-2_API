@@ -54,7 +54,7 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
               User
                 .findByIdAndUpdate(req.user._id,{$push : {favourites : charArray[0]._id}})
                 .then(()=>{
-                  res.redirect("/search")
+                  res.redirect("/userProfile")
                 })
             }else{res.redirect("/userProfile")}
           })

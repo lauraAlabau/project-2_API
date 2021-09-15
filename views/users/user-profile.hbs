@@ -5,13 +5,27 @@
         <div  id="search-result" class='row search-row'>
             {{#each userInSession.favourites}}
                 <div class=' col-3 '>
-                    <div class='card'>
-                        <img src={{image}} alt={{name}}>
-
-                        <form action = "/delete-favourite" method="POST">
-                            <input type="hidden" name="id" value={{_id}}>
-                            <button type="submit" class="btn btn-secondary btn-block">Delete</button>
-                        </form>
+                    <div class='card container-card'>
+                        <img  id="img-hover"  src={{image}} alt={{name}}>
+                        <div class="overlay">
+                             <form class="button-hover" id="decks" action = "/add-deck" method="POST">
+                                {{!--     name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId --}}
+                                <input type="hidden" name="name" value="{{name}}">
+                                <input type="hidden" name="image" value={{image_uris.png}}>
+                                <input type="hidden" name="mana_cost" value="{{mana_cost}}">
+                                <input type="hidden" name="cmc" value="{{cmc}}">
+                                <input type="hidden" name="type_line" value="{{type_line}}">
+                                <input type="hidden" name="oracle_text" value="{{oracle_text}}">
+                                <input type="hidden" name="power" value="{{power}}">
+                                <input type="hidden" name="toughness" value="{{toughness}}">
+                                <input type="hidden" name="apiId" value={{id}}>
+                                <button type="submit" class="btn btn-warning  btn-block deck">Add to deck</button>
+                            </form>
+                            <form class="button-hover2" action = "/delete-favourite" method="POST">
+                                <input type="hidden" name="id" value={{_id}}>
+                                <button type="submit" class="btn btn-danger btn-block">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             {{/each}}
