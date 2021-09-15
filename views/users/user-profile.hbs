@@ -8,7 +8,7 @@
                     <div class='card container-card'>
                         <img  id="img-hover"  src={{image}} alt={{name}}>
                         <div class="overlay">
-                            <form class="button-hover" onclick="addedToDeck()" id="decks" action = "/fav-deck" method="POST">
+                            <form class="button-hover"  id="decks" action = "/fav-deck" method="POST">
                                 {{!--     name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId --}}
                                 <input type="hidden" name="name" value="{{name}}">
                                 <input type="hidden" name="image" value={{image_uris.png}}>
@@ -19,7 +19,7 @@
                                 <input type="hidden" name="power" value="{{power}}">
                                 <input type="hidden" name="toughness" value="{{toughness}}">
                                 <input type="hidden" name="apiId" value={{id}}>
-                                <button type="submit" class="btn btn-warning  btn-block deck">Add to deck</button>
+                                <button onclick="addedToDeck()" type="submit" class="btn btn-warning  btn-block deck">Add to deck</button>
                             </form>
                             <form class="button-hover2" action = "/delete-favourite" method="POST">
                                 <input type="hidden" name="id" value={{_id}}>
