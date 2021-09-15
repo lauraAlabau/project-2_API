@@ -79,7 +79,7 @@ router.get('/userProfile', isLoggedIn, (req, res) => {
 router.get('/userDeck', isLoggedIn, (req, res) => {
   User
     .findById(req.user._id)
-    .populate('decks')
+    .populate('decks sideboard')
     .then((user) =>{
       res.render('users/user-deck', { userInSession: user });
     })

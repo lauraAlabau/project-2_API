@@ -139,9 +139,9 @@ router.post("/add-sb", isLoggedIn ,(req, res) =>{
       if (sbArray.length === 0) {
         Card
           .create(query3)
-          .then(result2 => {
+          .then(result => {
             User
-              .findByIdAndUpdate(req.user._id,{$push : {sideboard : result2._id}})
+              .findByIdAndUpdate(req.user._id,{$push : {sideboard : result._id}})
               .then(()=>{
                 res.redirect("/userDeck")
               })

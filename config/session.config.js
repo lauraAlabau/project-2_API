@@ -21,13 +21,13 @@ module.exports = app => {
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
         secure: process.env.NODE_ENV === 'production',
         httpOnly: true,
-        maxAge: 60000
+        maxAge: 60000000
       }, // ADDED code below !!!
       store: MongoStore.create({
         mongoUrl: process.env.DB_REMOTE /* || 'mongodb://localhost/mtg-auth' */,
 
         // ttl => time to live
-        ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
+        //ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
       })
     })
   );
