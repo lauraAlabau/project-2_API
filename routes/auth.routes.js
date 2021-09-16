@@ -45,9 +45,10 @@ router.post('/signup', (req, res, next) => {
         passwordHash: hashedPassword
       });
     })
-    .then(() => {
+    .then((user) => {
       // console.log('Newly created user is: ', userFromDB);
-      res.redirect('/userProfile');
+      req.session.currentUser = user;
+      res.redirect('/');
     })
     .catch(error => {
       if (error instanceof mongoose.Error.ValidationError) {
