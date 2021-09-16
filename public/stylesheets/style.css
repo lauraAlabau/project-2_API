@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px  Helvetica, Arial, sans-serif;
   background-image: url(../images/bgHome.jpg);
   background-repeat: no-repeat;
@@ -13,16 +12,14 @@ body #search{
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(12,84,96,1) 0%, rgba(0,0,0,1) 100%);
   width: 100vw;
-  margin: 0px 0px -25px -50px;
-  min-height: 91vh;
+  min-height: 10vh;
 }
 
 body #profile {
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(83,83,83,1) 0%, rgba(0,0,0,1) 100%);
   width: 100vw;
-  margin: 0px 0px -25px -50px;
-  min-height: 91vh;
+  min-height: 10vh;
 }
 
 ul{
@@ -123,7 +120,7 @@ button#user-home{
 
 /* FORMS */
 #form-auth form {
-  margin: 0px auto;
+  margin: 30px auto 0px;
   width: 40vw;
   background: rgba(0, 0, 0, 0.60);
   border-radius: 10px;
@@ -158,7 +155,7 @@ button#user-home{
 
 /* SEARCH */
 #form-auth.search form {
-  margin: 0px auto;
+  margin: 30px auto 0px;
   width: 33%;
   background: transparent;
   padding: 1%;
