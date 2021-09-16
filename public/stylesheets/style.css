@@ -55,6 +55,10 @@ h1{
   background-color: rgb(27, 27, 27) !important;
 }
 
+#navbarTogglerDemo02 {
+  background-color: black;
+}
+
 /* FOOTER GENERIC */
 
 footer{
