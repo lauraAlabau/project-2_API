@@ -12,14 +12,14 @@ body #search{
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(12,84,96,1) 0%, rgba(0,0,0,1) 100%);
   width: 100vw;
-  min-height: 10vh;
+  min-height: 100vh;
 }
 
 body #profile {
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(83,83,83,1) 0%, rgba(0,0,0,1) 100%);
   width: 100vw;
-  min-height: 10vh;
+  min-height: 100vh;
 }
 
 ul{
