@@ -17,7 +17,8 @@ body #search{
 
 body #profile {
   background: rgb(0,0,0);
-  background: linear-gradient(0deg, rgba(83,83,83,1) 0%, rgba(0,0,0,1) 100%);
+  /* background: linear-gradient(0deg, rgba(83,83,83,1) 0%, rgba(0,0,0,1) 100%); */
+  background: linear-gradient(0deg, rgb(0 0 0) 0%, rgb(0 24 35) 50%, rgb(2 2 2) 100% );
   width: 100vw;
   min-height: 100vh;
 }
