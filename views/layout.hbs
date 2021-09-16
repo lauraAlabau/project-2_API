@@ -26,6 +26,7 @@
                   <li class="nav-item">
                      <a class="nav-link" href="/search">Search</a>                  
                   </li>
+                  
          {{#if userInSession}}
                   <li class="nav-item">
                      <a class="nav-link" href="/userProfile">Favourites</a>                  
@@ -42,6 +43,19 @@
                         <button class="btn btn-danger my-2 mr-sm-2">Logout</button>
                      </form>
                   </li>
+              </ul>   
+            </div>     
+            {{else}}  
+               </ul>   
+            </div>    
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="/login">Login</a>                  
+                  </li>
+                   <li class="nav-item">
+                     <a class="nav-link" href="/signup">Signup</a>                  
+                  </li>
                </ul>   
             </div>         
          {{/if}} 
@@ -50,7 +64,7 @@
       {{{body}}}
       <footer class=" fixed-bottom ">
          <div>
-            <p>Develop by Laura Alabau</p>
+            <p>By Laura Alabau</p>
          </div>
       </footer>
 

@@ -254,6 +254,7 @@ margin-bottom: 5vh;
   display: flex;
   padding-top: 5px;
   flex-direction: column;
+  padding-top: 65px;
 }
 
 .user-deck h2.print{
