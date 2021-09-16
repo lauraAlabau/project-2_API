@@ -225,6 +225,8 @@ margin-bottom: 5vh;
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-top: 25px;
+  padding-bottom: 50px;
 }
 
 .card-list{
