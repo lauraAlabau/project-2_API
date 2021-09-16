@@ -10,7 +10,8 @@ body {
 }
 body #search{
   background: rgb(0,0,0);
-  background: linear-gradient(0deg, rgba(12,84,96,1) 0%, rgba(0,0,0,1) 100%);
+  /* background: linear-gradient(0deg, rgba(12,84,96,1) 0%, rgba(0,0,0,1) 100%); */
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(5, 37, 42) 50%, rgb(2, 2, 2) 100% );
   width: 100vw;
   min-height: 100vh;
 }
@@ -18,7 +19,7 @@ body #search{
 body #profile {
   background: rgb(0,0,0);
   /* background: linear-gradient(0deg, rgba(83,83,83,1) 0%, rgba(0,0,0,1) 100%); */
-  background: linear-gradient(0deg, rgb(0 0 0) 0%, rgb(0 24 35) 50%, rgb(2 2 2) 100% );
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(25, 26, 25) 50%, rgb(2, 2, 2) 100% );
   width: 100vw;
   min-height: 100vh;
 }
@@ -35,6 +36,7 @@ h1{
 #my-nav{
   background-color: #000 !important;
   height: 55px;
+  border-bottom: 1px solid #333;
 }
 
 #my-nav a{
@@ -61,6 +63,7 @@ footer{
   bottom:0;
   width: 100%;
   color: white;
+  border-top: 1px solid #1d1d1d;
 }
 
 footer p{
@@ -160,13 +163,13 @@ button#user-home{
   width: 33%;
   background: transparent;
   padding: 1%;
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 #form-auth.search form label {
   color: rgb(255, 255, 255);
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   text-align: center;
   width: 100%;
   font-size: 1.2em;
@@ -271,6 +274,15 @@ margin-bottom: 5vh;
 
 #deck-list {
   margin-bottom: 5%;
+}
+
+#deck-list .btn-danger {
+  background-color: #861c26;
+  border-color: #861c26;
+}
+#deck-list .btn-danger:hover {
+  background-color: #bd2230;
+  border-color: #bd2230;
 }
 
 /* OVERLAY IMAGES */

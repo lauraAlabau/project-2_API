@@ -19,52 +19,35 @@
                <span class="navbar-toggler-icon"></span>
             </button> 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-               <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="/">Home</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="/search">Search</a>                  
-               </li>
-            </ul>
-         </div> 
-         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
-               {{#if userInSession}}
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{userInSession.username}}
-                     </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <a class="dropdown-item" href="/userProfile">Favourites</a>
-                     <div class="dropdown-divider"></div>
-                     <a class="dropdown-item" href="/userDeck">Decks</a>
-                  </div>
+               <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" aria-current="page" href="/">Home</a>
                   </li>
-
+                  <li class="nav-item">
+                     <a class="nav-link" href="/search">Search</a>                  
+                  </li>
+         {{#if userInSession}}
+                  <li class="nav-item">
+                     <a class="nav-link" href="/userProfile">Favourites</a>                  
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/userDeck">Deck</a>                  
+                  </li>
+               </ul>
+            </div>         
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+               <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
                      <form id="logout-form" class="form-inline my-2 my-lg-0" action="/logout" method="POST">
                         <button class="btn btn-danger my-2 mr-sm-2">Logout</button>
                      </form>
                   </li>
-                  {{else}}
-                     <li class="nav-item">
-                        <a class="nav-link" href="/signup">Signup</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                     </li>
-               {{/if}}
-            </ul>
-          </div>
-        </div>
+               </ul>   
+            </div>         
+         {{/if}} 
+         </div>
       </nav>
-
-
-
       {{{body}}}
-
-
       <footer class=" fixed-bottom ">
          <div>
             <p>Develop by Laura Alabau</p>
@@ -76,5 +59,4 @@
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
    </body>
-
 </html>
