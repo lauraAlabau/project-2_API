@@ -106,6 +106,8 @@ router.post("/add-deck", isLoggedIn ,(req, res) =>{
               User
                 .findByIdAndUpdate(req.user._id,{$push : {decks : cardArray[0]._id}})
                 .then(()=>{
+                  //res.send(req.body);
+
                   res.redirect("/search")
                 })
             }else{res.redirect("/search")}
