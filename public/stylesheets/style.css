@@ -120,7 +120,7 @@ button#user-home{
 
 /* FORMS */
 #form-auth form {
-  margin: 30px auto 0px;
+  margin: 0px auto;
   width: 40vw;
   background: rgba(0, 0, 0, 0.60);
   border-radius: 10px;
@@ -155,10 +155,11 @@ button#user-home{
 
 /* SEARCH */
 #form-auth.search form {
-  margin: 30px auto 0px;
+  margin: 0px auto;
   width: 33%;
   background: transparent;
   padding: 1%;
+  padding-top: 50px;
 }
 
 #form-auth.search form label {
