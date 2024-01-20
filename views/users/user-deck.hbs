@@ -16,18 +16,18 @@
                     <h2>Deck</h2>
                     <div class='list row borderH'>
                         <h5 class="col-2 print">Quantity</h5>
-                        <h5 class="col-5 print">Card name</h5>
-                        <h5 class="col-3 print">Type</h5>
+                        <h5 class="col-4 print">Card name</h5>
+                        <h5 class="col-4 print">Type</h5>
                         <h5 class="col-2"></h5>
                     </div>
                     {{#each userInSession.decks}}
                         <li> 
                             <div class='list row'>
                                 <form class="col-2" action="/action_page.php">
-                                    <input type="number" id="quantity" value="1" name="quantity" min="1" max="60">
+                                    <input type="number"class="input-num"  id="quantity" value="1" name="quantity" min="1" max="60">
                                 </form> 
-                                <h5 class="col-5">{{this.name}}</h5>
-                                <h5 class="col-3 print">{{this.type_line}}</h5>
+                                <h5 class="col-4">{{this.name}}</h5>
+                                <h5 class="col-4 print">{{this.type_line}}</h5>
                                 <form class="col-1" action = "/add-sb" method="POST">
                                     <input type="hidden" name="name" value="{{name}}">
                                     <input type="hidden" name="image" value={{image_uris.png}}>
@@ -50,18 +50,18 @@
                     <h2>Sideboard</h2>
                     <div class='list row borderH'>
                         <h5 class="col-2 print">Quantity</h5>
-                        <h5 class="col-5 print">Card name</h5>
-                        <h5 class="col-3 print">Type</h5>
+                        <h5 class="col-4 print">Card name</h5>
+                        <h5 class="col-4 print">Type</h5>
                         <h5 class="col-2"></h5>
                     </div>
                     {{#each userInSession.sideboard}}
                         <li> 
                             <div class='list row'>
                                 <form class="col-2" action="/action_page.php">
-                                    <input type="number" id="quantity" value="1" name="quantity" min="1" max="60">
+                                    <input class="input-num" type="number" id="quantity" value="1" name="quantity" min="1" max="60">
                                 </form> 
-                                    <h5 class="col-5">{{this.name}}</h5>
-                                    <h5 class="col-3 print">{{this.type_line}}</h5>
+                                    <h5 class="col-4">{{this.name}}</h5>
+                                    <h5 class="col-4 print">{{this.type_line}}</h5>
                                 <form class="col-2" action = "/delete-card-deck" method="POST">
                                     <input type="hidden" name="id" value={{this._id}}>
                                     <button type="submit" class="btn btn-danger btn-block mb-2">Delete</button>

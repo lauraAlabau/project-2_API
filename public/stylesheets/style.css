@@ -11,18 +11,6 @@ body {
   overflow-x: hidden;
 }
 body #search {
-  /* background-color: linear-gradient(
-    0deg,
-    rgb(0, 0, 0) 0%,
-    rgb(5, 37, 42) 50%,
-    rgb(2, 2, 2) 100%
-  ); */
-
-  /* background: linear-gradient(
-    0deg,
-    rgba(12, 84, 96, 1) 0%,
-    rgba(0, 0, 0, 1) 100%
-  ); */
   background-image: url(../images/nissa.png);
   background-color: #10130d;
   background-repeat: no-repeat;
@@ -34,14 +22,6 @@ body #search {
 }
 
 body #profile {
-  /* /* background: rgb(0, 0, 0); */
-  /* background: linear-gradient(0deg, rgba(83,83,83,1) 0%, rgba(0,0,0,1) 100%); */
-  /* background: linear-gradient(
-    0deg,
-    rgb(0, 0, 0) 0%,
-    rgb(25, 26, 25) 50%,
-    rgb(2, 2, 2) 100%
-  ); */
   background-image: url(../images/jace.png);
   background-color: #0d1213;
   background-repeat: no-repeat;
@@ -53,14 +33,6 @@ body #profile {
 }
 
 body #deck {
-  /* /* background: rgb(0, 0, 0); */
-  /* background: linear-gradient(0deg, rgba(83,83,83,1) 0%, rgba(0,0,0,1) 100%); */
-  /* background: linear-gradient(
-    0deg,
-    rgb(0, 0, 0) 0%,
-    rgb(25, 26, 25) 50%,
-    rgb(2, 2, 2) 100%
-  ); */
   background-image: url(../images/lotus.png);
   background-color: #120d13;
   background-repeat: no-repeat;
@@ -69,6 +41,19 @@ body #deck {
   background-size: 1200px;
   width: 100vw;
   min-height: 100vh;
+}
+
+#not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url(../images/thunder.png);
+  background-color: #120d13;
+  background-repeat: no-repeat;
+  background-position-x: -20px;
+  background-position-y: -60px;
+  background-size: 1200px;
 }
 
 ul {
@@ -182,16 +167,6 @@ button#user-home {
   gap: 10px;
   padding-top: 25px;
 }
-
-/* #form-auth form label {
-  color: rgb(255, 255, 255);
-  display: inline-block;
-  margin-bottom: 10px;
-  text-align: center;
-  width: 100%;
-  font-size: 1.2em;
-} */
-
 .tabs {
   display: flex;
   justify-content: space-around;
@@ -233,6 +208,48 @@ button#user-home {
 #form-auth.search input.search-input {
   border-radius: 5px 0px 0px 5px;
 }
+
+#form-auth form input:-webkit-autofill,
+#form-auth.search input.search-input:-webkit-autofill {
+  box-shadow: 0 0 0 30px #292929af inset;
+  -webkit-text-fill-color: antiquewhite !important;
+  font-size: 20px !important;
+}
+
+#form-auth form input:-webkit-autofill:-internal-autofill-selected,
+#form-auth.search
+  input.search-input:-webkit-autofill:-internal-autofill-selected {
+  box-shadow: 0 0 0 30px #292929af inset;
+  -webkit-text-fill-color: antiquewhite !important;
+  font-size: 20px !important;
+}
+
+#form-auth form input,
+#form-auth.search input.search-input {
+  box-sizing: border-box;
+  background-color: #333333af;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 20px;
+  outline: 0;
+  width: 100%;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  transition: border-color 0.3s ease;
+  color: antiquewhite;
+}
+
+#form-auth.search input.search-input {
+  border-radius: 5px 0px 0px 5px;
+}
+
+#form-auth form input:focus,
+#form-auth.search input.search-input:focus {
+  border-color: antiquewhite;
+  border: 2px solid antiquewhite;
+  color: antiquewhite;
+}
 #form-auth form button {
   box-sizing: border-box;
   font-size: 14px;
@@ -242,11 +259,6 @@ button#user-home {
   margin-bottom: 0px;
   margin-top: 10px;
 }
-/* 
-#form-auth form button {
-  font-size: 16px;
-  padding: 5px;
-} */
 
 #form-auth form button.btn-danger {
   background-color: antiquewhite;
@@ -385,6 +397,22 @@ button#user-home {
   border-bottom: 1px solid white;
 }
 
+.input-num {
+  width: 60px;
+  font-size: 16px;
+  background-color: #333333af;
+  border: none;
+  padding: 7px;
+  color: antiquewhite;
+  text-align: center;
+  border-radius: 6px;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 #deck-list {
   margin-bottom: 5%;
 }
@@ -450,6 +478,26 @@ button#user-home {
   opacity: 1;
 }
 
+.not-found {
+  text-align: center;
+  padding: 100px;
+  width: fit-content;
+  background-color: #252838d6;
+  border-radius: 10px;
+  color: rgb(226, 254, 254);
+}
+
+.not-found h1 {
+  font-size: 80px;
+  margin: 0;
+  color: rgb(226, 254, 254);
+}
+
+.not-found h2 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
 @media print {
   body {
     background: white;
@@ -481,6 +529,12 @@ button#user-home {
   }
 
   input {
+    border: none;
+    background: transparent;
+    color: black;
+  }
+
+  .input-num {
     border: none;
     background: transparent;
     color: black;
