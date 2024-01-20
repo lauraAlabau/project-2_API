@@ -1,98 +1,149 @@
 <div id="search">
   <div id="form-auth" class="search">
-    <form action="/search" method="POST">
-      <label>
-        <input type="text" name="q" placeholder="Card name" />
-      </label>
+    <form action="/search" method="POST" class="search-form">
+
+      <input
+        type="text"
+        class="search-input"
+        name="q"
+        placeholder="Card name"
+      />
+
       <button type="submit" class="btn btn-info">Search</button>
     </form>
   </div>
   {{#if userInSession}}
-  <div  id="search-result" class='row search-row'>
-    {{#each cards}}
-      <div class=' col-3 '>
-        <div class='card container-card'>
-          <img id="img-hover" src={{image_uris.png}} alt={{name}}>
-          <div class="overlay">
-            <form class="button-hover" id="favourites" action = "/add-favorite" method="POST">
-              <input type="hidden" name="name" value="{{name}}">
-              <input type="hidden" name="image" value={{image_uris.png}}>
-              <input type="hidden" name="mana_cost" value="{{mana_cost}}">
-              <input type="hidden" name="cmc" value="{{cmc}}">
-              <input type="hidden" name="type_line" value="{{type_line}}">
-              <input type="hidden" name="oracle_text" value="{{oracle_text}}">
-              <input type="hidden" name="power" value="{{power}}">
-              <input type="hidden" name="toughness" value="{{toughness}}">
-              <input type="hidden" name="apiId" value={{id}}>
-              <button onclick="addedToFav()" type="submit" class="btn btn-info  btn-block favourites">Add to favourites</button>
-            </form>
-            <form class="button-hover2" id="decks" action = "/add-deck" method="POST">
-              {{!--     name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId --}}
-              <input type="hidden" name="name" value="{{name}}">
-              <input type="hidden" name="image" value={{image_uris.png}}>
-              <input type="hidden" name="mana_cost" value="{{mana_cost}}">
-              <input type="hidden" name="cmc" value="{{cmc}}">
-              <input type="hidden" name="type_line" value="{{type_line}}">
-              <input type="hidden" name="oracle_text" value="{{oracle_text}}">
-              <input type="hidden" name="power" value="{{power}}">
-              <input type="hidden" name="toughness" value="{{toughness}}">
-              <input type="hidden" name="apiId" value={{id}}>
-              <button onclick="addedToDeck()" type="submit" class="btn btn-warning  btn-block deck">Add to deck</button>
-            </form>
+    <div id="search-result" class="row search-row">
+      {{#each cards}}
+        <div class="col-3">
+          <div class="card container-card">
+            <img id="img-hover" src={{image_uris.png}} alt={{name}} />
+            <div class="overlay">
+              <form
+                class="button-hover"
+                id="favourites"
+                action="/add-favorite"
+                method="POST"
+              >
+                <input type="hidden" name="name" value="{{name}}" />
+                <input type="hidden" name="image" value={{image_uris.png}} />
+                <input type="hidden" name="mana_cost" value="{{mana_cost}}" />
+                <input type="hidden" name="cmc" value="{{cmc}}" />
+                <input type="hidden" name="type_line" value="{{type_line}}" />
+                <input
+                  type="hidden"
+                  name="oracle_text"
+                  value="{{oracle_text}}"
+                />
+                <input type="hidden" name="power" value="{{power}}" />
+                <input type="hidden" name="toughness" value="{{toughness}}" />
+                <input type="hidden" name="apiId" value={{id}} />
+                <button
+                  onclick="addedToFav()"
+                  type="submit"
+                  class="btn btn-info btn-block favourites"
+                >Add to favourites</button>
+              </form>
+              <form
+                class="button-hover2"
+                id="decks"
+                action="/add-deck"
+                method="POST"
+              >
+                {{!     name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId }}
+                <input type="hidden" name="name" value="{{name}}" />
+                <input type="hidden" name="image" value={{image_uris.png}} />
+                <input type="hidden" name="mana_cost" value="{{mana_cost}}" />
+                <input type="hidden" name="cmc" value="{{cmc}}" />
+                <input type="hidden" name="type_line" value="{{type_line}}" />
+                <input
+                  type="hidden"
+                  name="oracle_text"
+                  value="{{oracle_text}}"
+                />
+                <input type="hidden" name="power" value="{{power}}" />
+                <input type="hidden" name="toughness" value="{{toughness}}" />
+                <input type="hidden" name="apiId" value={{id}} />
+                <button
+                  onclick="addedToDeck()"
+                  type="submit"
+                  class="btn btn-warning btn-block deck"
+                >Add to deck</button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    {{/each}}
-  </div>
+      {{/each}}
+    </div>
   {{else}}
-  <div  id="search-result" class='row search-row'>
-    {{#each cards}}
-      <div class=' col-3 '>
-        <div class='card container-card'>
-          <img id="img-hover" src={{image_uris.png}} alt={{name}}>
-          <div class="overlay">
-            <form class="button-hover" id="favourites" action = "/add-favorite" method="POST">
-              <input type="hidden" name="name" value="{{name}}">
-              <input type="hidden" name="image" value={{image_uris.png}}>
-              <input type="hidden" name="mana_cost" value="{{mana_cost}}">
-              <input type="hidden" name="cmc" value="{{cmc}}">
-              <input type="hidden" name="type_line" value="{{type_line}}">
-              <input type="hidden" name="oracle_text" value="{{oracle_text}}">
-              <input type="hidden" name="power" value="{{power}}">
-              <input type="hidden" name="toughness" value="{{toughness}}">
-              <input type="hidden" name="apiId" value={{id}}>
-              <button onclick="notAllow()" type="submit" class="btn btn-info  btn-block favourites">Add to favourites</button>
-            </form>
-            <form class="button-hover2" id="decks" action = "/add-deck" method="POST">
-              {{!--     name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId --}}
-              <input type="hidden" name="name" value="{{name}}">
-              <input type="hidden" name="image" value={{image_uris.png}}>
-              <input type="hidden" name="mana_cost" value="{{mana_cost}}">
-              <input type="hidden" name="cmc" value="{{cmc}}">
-              <input type="hidden" name="type_line" value="{{type_line}}">
-              <input type="hidden" name="oracle_text" value="{{oracle_text}}">
-              <input type="hidden" name="power" value="{{power}}">
-              <input type="hidden" name="toughness" value="{{toughness}}">
-              <input type="hidden" name="apiId" value={{id}}>
-              <button onclick="notAllow()" type="submit" class="btn btn-warning  btn-block deck">Add to deck</button>
-            </form>
+    <div id="search-result" class="row search-row">
+      {{#each cards}}
+        <div class="col-3">
+          <div class="card container-card">
+            <img id="img-hover" src={{image_uris.png}} alt={{name}} />
+            <div class="overlay">
+              <form
+                class="button-hover"
+                id="favourites"
+                action="/add-favorite"
+                method="POST"
+              >
+                <input type="hidden" name="name" value="{{name}}" />
+                <input type="hidden" name="image" value={{image_uris.png}} />
+                <input type="hidden" name="mana_cost" value="{{mana_cost}}" />
+                <input type="hidden" name="cmc" value="{{cmc}}" />
+                <input type="hidden" name="type_line" value="{{type_line}}" />
+                <input
+                  type="hidden"
+                  name="oracle_text"
+                  value="{{oracle_text}}"
+                />
+                <input type="hidden" name="power" value="{{power}}" />
+                <input type="hidden" name="toughness" value="{{toughness}}" />
+                <input type="hidden" name="apiId" value={{id}} />
+                <button
+                  onclick="notAllow()"
+                  type="submit"
+                  class="btn btn-info btn-block favourites"
+                >Add to favourites</button>
+              </form>
+              <form
+                class="button-hover2"
+                id="decks"
+                action="/add-deck"
+                method="POST"
+              >
+                {{!     name, image, mana_cost, cmc, type_line, oracle_text, power, toughness, apiId }}
+                <input type="hidden" name="name" value="{{name}}" />
+                <input type="hidden" name="image" value={{image_uris.png}} />
+                <input type="hidden" name="mana_cost" value="{{mana_cost}}" />
+                <input type="hidden" name="cmc" value="{{cmc}}" />
+                <input type="hidden" name="type_line" value="{{type_line}}" />
+                <input
+                  type="hidden"
+                  name="oracle_text"
+                  value="{{oracle_text}}"
+                />
+                <input type="hidden" name="power" value="{{power}}" />
+                <input type="hidden" name="toughness" value="{{toughness}}" />
+                <input type="hidden" name="apiId" value={{id}} />
+                <button
+                  onclick="notAllow()"
+                  type="submit"
+                  class="btn btn-warning btn-block deck"
+                >Add to deck</button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    {{/each}}
-  </div>
+      {{/each}}
+    </div>
   {{/if}}
 </div>
 
 <script>
-  
-  function addedToDeck() {
-    alert("Added to your deck");
-  }
-  function addedToFav() {
-    alert("Added to your favourites");
-  }
-  function notAllow() {
-    alert("You have to log in first");
-  }
+
+  function addedToDeck() { alert("Added to your deck"); } function addedToFav()
+  { alert("Added to your favourites"); } function notAllow() { alert("You have
+  to log in first"); }
 </script>
