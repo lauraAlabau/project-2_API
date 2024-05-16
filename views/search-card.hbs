@@ -15,7 +15,7 @@
   {{#if userInSession}}
     <div id="search-result" class="row search-row">
       {{#each cards}}
-        <div class="col-2">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
           <div class="card container-card">
             <img id="img-hover" src={{image_uris.png}} alt={{name}} />
             <div class="overlay">
@@ -78,7 +78,7 @@
   {{else}}
     <div id="search-result" class="row search-row">
       {{#each cards}}
-        <div class="col-3">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
           <div class="card container-card">
             <img id="img-hover" src={{image_uris.png}} alt={{name}} />
             <div class="overlay">
